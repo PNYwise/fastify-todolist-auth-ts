@@ -1,7 +1,7 @@
 # About this application
 
 
-## Technology that I use
+## Technologies that I use
 * [Fastify](https://www.fastify.io/) - Web server
 * [Prisma](https://www.prisma.io/) - Database ORM
 * [Zod](https://github.com/colinhacks/zod) - Request and response validation

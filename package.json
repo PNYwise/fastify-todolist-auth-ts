@@ -1,0 +1,32 @@
+{
+  "name": "fastify-todolist-auth-ts",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "PNYwise",
+  "license": "MIT",
+  "scripts": {
+    "dev": "tsnd --respawn --transpile-only --exit-child src/index.ts",
+    "build": "rimraf build && yarn tsc --build tsconfig.json",
+    "start": "node build/index.js",
+    "test": ""
+  },
+  "dependencies": {
+    "@prisma/client": "^4.8.0",
+    "dotenv": "^16.0.3",
+    "fastify": "^4.10.2",
+    "fastify-jwt": "^4.2.0",
+    "fastify-swagger": "^5.2.0",
+    "fastify-zod": "^1.2.0",
+    "winston": "^3.8.2",
+    "zod": "^3.20.2",
+    "zod-to-json-schema": "^3.20.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.17",
+    "@types/tap": "^15.0.7",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.9.4"
+  }
+}

@@ -26,7 +26,7 @@
 **Response** 200
 ```json
 {
-     "message": "string", //pong
+     "message": "string",
      "code": "number",
 }
 ```

@@ -32,7 +32,6 @@
 ```
 
 ## **Auth**
------
 ## register 
 **POST** *http://localhost:3000/api/register*
 
@@ -74,7 +73,7 @@
 }
 ```
 ## **USER**
-----------
+
 ## User
 **GET** *http://localhost:3000/api/user*
 
@@ -96,7 +95,7 @@
 }
 ```
 ## **TODO**
-----------
+
 
 ## Todo
 **GET** *http://localhost:3000/api/todos/:id*
@@ -214,7 +213,7 @@
 
 
 ## **ERRORS**
-----------
+
 
 **Response** 400
 ```json

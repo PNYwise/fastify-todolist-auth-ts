@@ -26,8 +26,8 @@
 **Response** 200
 ```json
 {
-     "message": string, //pong
-     "code": number,
+     "message": "string", //pong
+     "code": "number",
 }
 ```
 
@@ -39,16 +39,16 @@
 **Request**
 ```json
 {
-     "email":string,
-     "name": string,
-     "password": string,
+     "email":"string",
+     "name": "string",
+     "password": "string",
 }
 ```
 **Response** 200
 ```json
 {
-     "message": string,
-     "code": number,
+     "message": "string",
+     "code": "number",
 }
 ```
 
@@ -59,17 +59,17 @@
 **Request**
 ```json
 {
-     "email":string,
-     "password": string,
+     "email":"string",
+     "password": "string",
 }
 ```
 **Response** 200
 ```json
 {
-     "message": string,
-     "code": number,
+     "message": "string",
+     "code": "number",
      "data" : {
-          "token":string
+          "token":"string"
      }
 }
 ```
@@ -84,14 +84,14 @@
 **Response** 200
 ```json
 {
-     "message": string,
-     "code": number,
+     "message": "string",
+     "code": "number",
      "data" : {
-          "id": string,
-          "email": string,
-          "name": string,
-          "created_at":date,
-          "updated_at":date
+          "id": "string",
+          "email": "string",
+          "name": "string",
+          "created_at":"date",
+          "updated_at":"date"
      }
 }
 ```
@@ -107,14 +107,14 @@
 **Response** 200
 ```json
 {
-     "message": string,
-     "code": number,
+     "message": "string",
+     "code": "number",
      "data" : {
-          "id": string,
-          "title": string,
-          "desc": string,
-          "created_at":date,
-          "updated_at":date
+          "id": "string",
+          "title": "string",
+          "desc": "string",
+          "created_at":"date",
+          "updated_at":"date"
      }
 }
 ```
@@ -124,29 +124,29 @@
 **RequestHeader**
 * authentication : *token*
 
-**QueryStrings**
+**Query"String"s**
 * search : *title*
 * sort : *asc* || *desc*
 
 **Response** 200
 ```json
 {
-     "message": string,
-     "code": number,
+     "message": "string",
+     "code": "number",
      "data" :[
           {
-               "id": string,
-               "title": string,
-               "desc": string,
-               "created_at":date,
-               "updated_at":date
+               "id": "string",
+               "title": "string",
+               "desc": "string",
+               "created_at":"date",
+               "updated_at":"date"
           },
           {
-               "id": string,
-               "title": string,
-               "desc": string,
-               "created_at":date,
-               "updated_at":date
+               "id": "string",
+               "title": "string",
+               "desc": "string",
+               "created_at":"date",
+               "updated_at":"date"
           }
      ] 
 }
@@ -160,18 +160,18 @@
 **Request**
 ```json
 {
-     "title":string,
-     "desc": string,
+     "title":"string",
+     "desc": "string",
 }
 ```
 **Response** 200
 ```json
 {
-     "message": string,
-     "code": number,
+     "message": "string",
+     "code": "number",
      "data" : {
-          "title": string,
-          "desc": string,
+          "title": "string",
+          "desc": "string",
      }
 }
 ```
@@ -184,18 +184,18 @@
 **Request**
 ```json
 {
-     "title":string,
-     "desc": string,
+     "title":"string",
+     "desc": "string",
 }
 ```
 **Response** 200
 ```json
 {
-     "message": string,
-     "code": number,
+     "message": "string",
+     "code": "number",
      "data" : {
-          "title": string,
-          "desc": string,
+          "title": "string",
+          "desc": "string",
      }
 }
 ```
@@ -207,8 +207,8 @@
 **Response** 200
 ```json
 {
-     "message": string,
-     "code": number,
+     "message": "string",
+     "code": "number",
 }
 ```
 
@@ -219,29 +219,29 @@
 **Response** 400
 ```json
 {
-     "message": string,
-     "code": number,
+     "message": "string",
+     "code": "number",
      "error" : [
           {
-               "code": string,
-               "expected": string,
-               "received": string,
+               "code": "string",
+               "expected": "string",
+               "received": "string",
                "path": [],
-               "message": string,
+               "message": "string",
           },
           {
-               "code": string,
+               "code": "string",
                "keys": [],
                "path": [],
-               "message": string,
+               "message": "string",
           },
           {
-               "code": string,
-               "minimum": number,
-               "type": string,
-               "inclusive": boolean,
+               "code": "string",
+               "minimum": "number",
+               "type": "string",
+               "inclusive": "boolean",
                "path": [],
-               "message": string,
+               "message": "string",
           },
      ]
 }
@@ -249,14 +249,14 @@
 **Response** 401
 ```json
 {
-     "message": string,
-     "code": number,
+     "message": "string",
+     "code": "number",
 }
 ```
 **Response** 500
 ```json
 {
-     "message": string,
-     "code": number,
+     "message": "string",
+     "code": "number",
 }
 ```

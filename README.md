@@ -17,7 +17,6 @@
 * [Create a todo](#createtodo)
 * [Update a todo](#updatetodo)
 * [Delete a todo](#deletetodo)
-* Validation
 
 # API SPEC
 ## Ping 

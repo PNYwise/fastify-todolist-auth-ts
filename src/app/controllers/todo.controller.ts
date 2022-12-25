@@ -2,7 +2,7 @@ import { FastifyReply, FastifyRequest } from "fastify";
 import error from "../../actions/errorValidation";
 import { response, responseData, responseError } from "../../actions/response";
 import logger from "../../config/winston";
-import { TodoInput, TodoParam, todoQueryStringInput, UpdateTodoInput } from "../schemas/todo.schema";
+import { TodoInput, TodoParam, todoQueryStringInput, TodoUpdateInput } from "../schemas/todo.schema";
 import { create, findAll, findId, update, destroy } from "../services/todo.service";
 
 
@@ -21,7 +21,7 @@ export async function createTodo(request: FastifyRequest<{ Body: TodoInput }>, r
      }
 
 }
-export async function updateTodo(request: FastifyRequest<{ Params: TodoParam, Body: UpdateTodoInput }>, rep: FastifyReply): Promise<void> {
+export async function updateTodo(request: FastifyRequest<{ Params: TodoParam, Body: TodoUpdateInput }>, rep: FastifyReply): Promise<void> {
      if (request.validationError) {
           rep.code(400).send(responseError(400, "unvalidated", error(request.validationError.validation)));
      }

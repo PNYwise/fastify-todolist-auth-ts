@@ -42,7 +42,7 @@
      "password": "string",
 }
 ```
-**Response** 200
+**Response** 201
 ```json
 {
      "message": "string",
@@ -116,6 +116,17 @@
      }
 }
 ```
+**Response** 404
+```json
+{
+     {
+          "message": "string",
+          "code": "number"
+     }
+}
+```
+
+
 ## Todos
 **GET** *http://localhost:3000/api/todos*
 
@@ -124,7 +135,9 @@
 
 **Query"String"s**
 * search : *title*
-* sort : *asc* || *desc*
+* sort : *asc* || *desc* 
+* skip : number
+* take : number
 
 **Response** 200
 ```json
@@ -162,7 +175,7 @@
      "desc": "string",
 }
 ```
-**Response** 200
+**Response** 201
 ```json
 {
      "message": "string",
@@ -171,6 +184,21 @@
           "title": "string",
           "desc": "string",
      }
+}
+```
+
+**Response** 400
+```json
+{
+     "message": "string",
+     "code": "number",
+     "error": [
+          {
+               "instancePath": "string",
+               "keyword": "string",
+               "message": "string"
+          }
+     ]
 }
 ```
 ## UpdateTodo
@@ -197,11 +225,37 @@
      }
 }
 ```
+**Response** 400
+```json
+{
+     "message": "string",
+     "code": "number",
+     "error": [
+          {
+               "instancePath": "string",
+               "keyword": "string",
+               "message": "string"
+          }
+     ]
+}
+```
+
+**Response** 404
+```json
+{
+     {
+          "message": "string",
+          "code": "number"
+     }
+}
+```
+
 ## DeleteTodo
 **DELETE** *http://localhost:3000/api/todos/:id*
 
 **RequestHeader**
 * authentication : *token*
+
 **Response** 200
 ```json
 {
@@ -209,41 +263,20 @@
      "code": "number",
 }
 ```
-
-
-## **ERRORS**
-
-
-**Response** 400
+**Response** 404
 ```json
 {
-     "message": "string",
-     "code": "number",
-     "error" : [
-          {
-               "code": "string",
-               "expected": "string",
-               "received": "string",
-               "path": [],
-               "message": "string",
-          },
-          {
-               "code": "string",
-               "keys": [],
-               "path": [],
-               "message": "string",
-          },
-          {
-               "code": "string",
-               "minimum": "number",
-               "type": "string",
-               "inclusive": "boolean",
-               "path": [],
-               "message": "string",
-          },
-     ]
+     {
+          "message": "string",
+          "code": "number"
+     }
 }
 ```
+
+
+
+## **AUTH ERRORS**
+
 **Response** 401
 ```json
 {
@@ -251,6 +284,8 @@
      "code": "number",
 }
 ```
+
+## **SERVER ERRORS**
 **Response** 500
 ```json
 {

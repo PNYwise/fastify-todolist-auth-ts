@@ -1,0 +1,38 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["fullTextSearch", "fullTextIndex"]
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       String @id @default(uuid())
+  email    String @unique
+  name     String
+  password String
+  // todos    Todo[]
+
+  @@index([email])
+  @@map("users")
+}
+
+model Todo {
+  id         Int      @id @default(autoincrement())
+  title      String   @db.VarChar(255)
+  desc       String   @db.LongText()
+  status     Boolean  @default(false)
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  // user       User     @relation(fields: [user_id], references: [id])
+  user_id    String
+
+  @@index([title, status, user_id])
+  @@fulltext([title])
+  @@map("todos")
+}

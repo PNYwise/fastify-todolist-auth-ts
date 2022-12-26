@@ -8,12 +8,12 @@ import { create, findAll, findId, update, destroy } from "../services/todo.servi
 
 
 
-export async function createTodo(request: FastifyRequest<{ Body: TodoInput }>, rep: FastifyReply): Promise<void> {
-     if (request.validationError) {
-          rep.code(400).send(responseError(400, "unvalidated", error(request.validationError.validation)));
+export async function createTodo(req: FastifyRequest<{ Body: TodoInput }>, rep: FastifyReply): Promise<void> {
+     if (req.validationError) {
+          rep.code(400).send(responseError(400, "unvalidated", error(req.validationError.validation)));
      }
      try {
-          const todo = await create({ ...request.body, user_id: "ksjdfksdbf" });
+          const todo = await create({ ...req.body, user_id: "ksjdfksdbf" });
           rep.code(201).send(responseData(201, "todo created", todo));
 
      } catch (error) {
@@ -21,16 +21,16 @@ export async function createTodo(request: FastifyRequest<{ Body: TodoInput }>, r
      }
 
 }
-export async function updateTodo(request: FastifyRequest<{ Params: TodoParam, Body: TodoUpdateInput }>, rep: FastifyReply): Promise<void> {
-     if (request.validationError) {
-          rep.code(400).send(responseError(400, "unvalidated", error(request.validationError.validation)));
+export async function updateTodo(req: FastifyRequest<{ Params: TodoParam, Body: TodoUpdateInput }>, rep: FastifyReply): Promise<void> {
+     if (req.validationError) {
+          rep.code(400).send(responseError(400, "unvalidated", error(req.validationError.validation)));
      }
      try {
-          const data = await findId(request.params);
+          const data = await findId(req.params);
           if (data == null) {
-               rep.code(404).send(response(404, `data with id  ${request.params.id} not found`));
+               rep.code(404).send(response(404, `data with id  ${req.params.id} not found`));
           }
-          const todo = await update(request.params, request.body);
+          const todo = await update(req.params, req.body);
           rep.code(200).send(responseData(200, "todo updated", todo));
 
      } catch (error) {
@@ -38,16 +38,16 @@ export async function updateTodo(request: FastifyRequest<{ Params: TodoParam, Bo
      }
 
 }
-export async function deleteTodo(request: FastifyRequest<{ Params: TodoParam }>, rep: FastifyReply): Promise<void> {
-     if (request.validationError) {
-          rep.code(400).send(responseError(400, "unvalidated", error(request.validationError.validation)));
+export async function deleteTodo(req: FastifyRequest<{ Params: TodoParam }>, rep: FastifyReply): Promise<void> {
+     if (req.validationError) {
+          rep.code(400).send(responseError(400, "unvalidated", error(req.validationError.validation)));
      }
      try {
-          const data = await findId(request.params);
+          const data = await findId(req.params);
           if (data == null) {
-               rep.code(404).send(response(404, `data with id  ${request.params.id} not found`));
+               rep.code(404).send(response(404, `data with id  ${req.params.id} not found`));
           }
-          await destroy(request.params);
+          await destroy(req.params);
           rep.code(200).send(response(200, "todo deleted"));
 
      } catch (error) {
@@ -56,11 +56,11 @@ export async function deleteTodo(request: FastifyRequest<{ Params: TodoParam }>,
 
 }
 
-export async function todoWithId(request: FastifyRequest<{ Params: TodoParam }>, rep: FastifyReply): Promise<void> {
+export async function todoWithId(req: FastifyRequest<{ Params: TodoParam }>, rep: FastifyReply): Promise<void> {
      try {
-          const data = await findId(request.params);
+          const data = await findId(req.params);
           if (data == null) {
-               rep.code(404).send(response(404, `data with id  ${request.params.id} not found`));
+               rep.code(404).send(response(404, `data with id  ${req.params.id} not found`));
           }
           rep.code(200).send(responseData(200, "data found", data));
      } catch (error) {
@@ -70,9 +70,9 @@ export async function todoWithId(request: FastifyRequest<{ Params: TodoParam }>,
      }
 
 }
-export async function todos(request: FastifyRequest<{ Querystring: todoQueryStringInput }>, rep: FastifyReply): Promise<void> {
+export async function todos(req: FastifyRequest<{ Querystring: todoQueryStringInput }>, rep: FastifyReply): Promise<void> {
      try {
-          const data = await findAll(request.query);
+          const data = await findAll(req.query);
           rep.code(200).send(responseData(200, "success", data));
      } catch (error) {
           logger.error(error);

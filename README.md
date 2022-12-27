@@ -40,6 +40,7 @@
      "email":"string",
      "name": "string",
      "password": "string",
+     
 }
 ```
 **Response** 201
@@ -47,6 +48,13 @@
 {
      "message": "string",
      "code": "number",
+     "data" : {
+          "id": "string",
+          "email": "string",
+          "name": "string",
+          "created_at":"date",
+          "updated_at":"date"
+     }
 }
 ```
 **Response** 400

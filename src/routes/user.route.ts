@@ -6,7 +6,10 @@ import { $ref } from "../app/schemas/user.schema";
 async function userRoutes(app: FastifyInstance) {
 
      app.get("/", {
-          preHandler: [app.authenticate]
+          preHandler: [app.authenticate],
+          schema: {
+               response: { 200: $ref("userResponseSchema") }
+          }
      }, user);
 }
 

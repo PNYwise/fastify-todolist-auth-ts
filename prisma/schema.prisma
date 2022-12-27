@@ -12,12 +12,14 @@ datasource db {
 }
 
 model User {
-  id       String @id @default(uuid())
-  email    String @unique
-  name     String
-  password String
-  salt     String
-  todos    Todo[]
+  id         String   @id @default(uuid())
+  email      String   @unique
+  name       String
+  password   String
+  salt       String
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  todos      Todo[]
 
   @@index([email])
   @@map("users")

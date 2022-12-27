@@ -24,6 +24,10 @@ const userGenerated = {
      created_at: z.date(),
      updated_at: z.date()
 }
+const userResponse = {
+     ...user,
+     ...userGenerated
+};
 
 
 
@@ -42,11 +46,14 @@ const loginResponseSchema = z.object({
      })
 });
 
+const userTypeSchema = z.object({
+     ...userResponse
+})
+
 const userResponseSchema = z.object({
      ...responseGenerated,
      data: z.object({
-          ...user,
-          ...userGenerated
+          ...userResponse
      })
 });
 
@@ -59,6 +66,9 @@ export type UserInput = z.infer<typeof userSchema>;
 
 // login
 export type UserLoginInput = z.infer<typeof userLoginSchema>;
+
+export type UserResponse = z.infer<typeof userTypeSchema>;
+
 
 
 /**

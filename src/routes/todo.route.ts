@@ -6,7 +6,7 @@ async function todoRoutes(app: FastifyInstance) {
 
      // create todo
      app.post('/', {
-          // preValidation
+          preHandler: [app.authenticate],
           schema: {
                body: $ref("todoSchema"),
                response: { 201: $ref("todoResponseSchema"), }
@@ -16,6 +16,7 @@ async function todoRoutes(app: FastifyInstance) {
 
      // get todo
      app.get('/:id', {
+          preHandler: [app.authenticate],
           schema: {
                params: $ref("todoParamSchema"),
                response: { 200: $ref("todoResponseSchema") }
@@ -25,6 +26,7 @@ async function todoRoutes(app: FastifyInstance) {
 
      // get todos with query string
      app.get('/', {
+          preHandler: [app.authenticate],
           schema: {
                response: { 200: $ref("todosResponseSchema") }
           }
@@ -32,6 +34,7 @@ async function todoRoutes(app: FastifyInstance) {
 
      // update todo
      app.put('/:id', {
+          preHandler: [app.authenticate],
           schema: {
                params: $ref("todoParamSchema"),
                body: $ref("todoUpdateSchema"),
@@ -43,6 +46,7 @@ async function todoRoutes(app: FastifyInstance) {
 
      // delete todo
      app.delete('/:id', {
+          preHandler: [app.authenticate],
           schema: {
                params: $ref("todoParamSchema"),
                response: { 200: $ref("responseSchema") }

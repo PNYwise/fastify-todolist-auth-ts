@@ -16,7 +16,8 @@ model User {
   email    String @unique
   name     String
   password String
-  // todos    Todo[]
+  salt     String
+  todos    Todo[]
 
   @@index([email])
   @@map("users")
@@ -29,10 +30,10 @@ model Todo {
   status     Boolean  @default(false)
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
-  // user       User     @relation(fields: [user_id], references: [id])
+  user       User     @relation(fields: [user_id], references: [id])
   user_id    String
 
-  @@index([title, status, user_id])
+  @@index([title, status])
   @@fulltext([title])
   @@map("todos")
 }

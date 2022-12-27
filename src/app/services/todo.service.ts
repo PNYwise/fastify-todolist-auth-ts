@@ -2,7 +2,7 @@ import { TodoInput, TodoParam, todoQueryStringInput, TodoUpdateInput } from "../
 import prisma from "../../config/database";
 import { Prisma, Todo } from "@prisma/client";
 
-export async function create(data: TodoInput & { user_id: "ksjdfksdbf" }): Promise<Todo> {
+export async function create(data: TodoInput & { user_id: string }): Promise<Todo> {
      return await prisma.todo.create({ data });
 }
 

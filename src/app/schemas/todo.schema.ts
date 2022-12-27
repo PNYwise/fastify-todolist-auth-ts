@@ -85,4 +85,4 @@ export const { schemas: todoSchemas, $ref } = buildJsonSchemas({
      todosResponseSchema,
      todoQueryStringSchema,
      responseSchema
-});
+}, { $id: "TodoSchema" });

@@ -8,7 +8,7 @@
 * [TypeScript](https://www.typescriptlang.org/) - Types & other cool stuff
 
 ## Features 
-* [Authentication](#auth)
+* [Auth](#auth)
 * [Register](#register)
 * [Login](#login)
 * [User](#user)
@@ -49,6 +49,20 @@
      "code": "number",
 }
 ```
+**Response** 400
+```json
+{
+     "message": "string",
+     "code": "number",
+     "error": [
+          {
+               "instancePath": "string",
+               "keyword": "string",
+               "message": "string"
+          }
+     ]
+}
+```
 
 
 ## login
@@ -67,8 +81,22 @@
      "message": "string",
      "code": "number",
      "data" : {
-          "token":"string"
+          "accessToken":"string"
      }
+}
+```
+**Response** 400
+```json
+{
+     "message": "string",
+     "code": "number",
+     "error": [
+          {
+               "instancePath": "string",
+               "keyword": "string",
+               "message": "string"
+          }
+     ]
 }
 ```
 ## **USER**
@@ -77,7 +105,7 @@
 **GET** *http://localhost:3000/api/user*
 
 **RequestHeader**
-* authentication : *token*
+* Authorization : *token*
 
 **Response** 200
 ```json
@@ -100,7 +128,7 @@
 **GET** *http://localhost:3000/api/todos/:id*
 
 **RequestHeader**
-* authentication : *token*
+* Authorization : *token*
 
 **Response** 200
 ```json
@@ -131,7 +159,7 @@
 **GET** *http://localhost:3000/api/todos*
 
 **RequestHeader**
-* authentication : *token*
+* Authorization : *token*
 
 **Query"String"s**
 * search : *title*
@@ -166,7 +194,7 @@
 **POST** *http://localhost:3000/api/todos*
 
 **RequestHeader**
-* authentication : *token*
+* Authorization : *token*
 
 **Request**
 ```json
@@ -205,7 +233,7 @@
 **PUT** *http://localhost:3000/api/todos/:id*
 
 **RequestHeader**
-* authentication : *token*
+* Authorization : *token*
 
 **Request**
 ```json
@@ -254,7 +282,7 @@
 **DELETE** *http://localhost:3000/api/todos/:id*
 
 **RequestHeader**
-* authentication : *token*
+* Authorization : *token*
 
 **Response** 200
 ```json

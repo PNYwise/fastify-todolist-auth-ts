@@ -13,7 +13,7 @@ export async function createTodo(req: FastifyRequest<{ Body: TodoInput }>, rep: 
           rep.code(400).send(responseError(400, "unvalidated", error(req.validationError.validation)));
      }
      try {
-          const todo = await create({ ...req.body, user_id: "ksjdfksdbf" });
+          const todo = await create({ ...req.body, user_id: req.user.id });
           rep.code(201).send(responseData(201, "todo created", todo));
 
      } catch (error) {
